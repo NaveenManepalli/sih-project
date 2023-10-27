@@ -1,0 +1,168 @@
+@import url(https://fonts.googleapis.com/css?family=Exo+2:400,700,500,300);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #0c192c;
+    font-family: "Exo 2";
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.bubbles {
+    position: relative;
+    display: flex;
+}
+
+.bubbles span {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: #4fc3dc;
+    margin: 0.4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #4fc3dc44, 0 0 50px #4fc3dc, 0 0 100px #4fc3dc;
+    animation: animate 15s linear infinite;
+    animation-duration: calc(50s/var(--i));
+}
+
+.bubbles span:nth-child(odd) {
+    background: #ff2d75;
+    box-shadow: 0 0 0 10px #ff2d7544, 0 0 50px #ff2d75, 0 0 100px #ff2d75;
+}
+
+.bubbles span:nth-child(3n+4) {
+    background: #c7ff2d;
+    box-shadow: 0 0 0 10px #c7ff2d44, 0 0 50px #c7ff2d, 0 0 100px #c7ff2d;
+}
+
+.bubbles span:nth-child(4n+3) {
+    background: #ff5e2d;
+    box-shadow: 0 0 0 10px #ff5e2d44, 0 0 50px #ff5e2d, 0 0 100px #ff5e2d;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(100vh) scale(0);
+    }
+    100% {
+        transform: translateY(-10vh) scale(1);
+    }
+}
+
+.zone {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: radial-gradient(ellipse at center, #ad9895 0, #0e0b0b 100%);
+    width: 20%;
+    height: 10%;
+    border: 5px dashed white;
+    text-align: center;
+    color: white;
+    z-index: 20;
+    transition: all 0.3s ease-out;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, .05), inset 0 0 .25em 0 rgba(0, 0, 0, .25);
+}
+
+.zone .btnCompression .btn {
+    /* Define styles for these elements here */
+}
+
+.zone .btnCompression .active {
+    background: #EB6A5A;
+    color: white;
+}
+
+.zone i {
+    text-align: center;
+    font-size: 10em;
+    color: #fff;
+    margin-top: 50px;
+}
+
+.zone .selectFile {
+    height: 50px;
+    margin: 20px auto;
+    position: relative;
+    width: 200px;
+}
+
+.zone label,
+.zone input {
+    cursor: pointer;
+    display: block;
+    height: 50px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.zone label {
+    background: #fff;
+    color: #EB6A5A;
+    display: inline-block;
+    font-size: 1.2em;
+    line-height: 50px;
+    padding: 0;
+    text-align: center;
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-weight: 400;
+    box-shadow: 0 1px 1px gray;
+}
+
+.zone input[type=file] {
+    opacity: 0;
+}
+
+.zone.in {
+    color: white;
+    border-color: white;
+    background: radial-gradient(ellipse at center, #EB6A5A 0, #c9402f 100%);
+}
+
+.zone.in i {
+    color: #fff;
+}
+
+.zone.in label {
+    background: #fff;
+    color: #EB6A5A;
+}
+
+.zone.hover {
+    color: gray;
+    border-color: white;
+    background: #fff;
+    border: 5px dashed gray;
+}
+
+.zone.hover i {
+    color: #EB6A5A;
+}
+
+.zone.hover label {
+    background: #fff;
+    color: #EB6A5A;
+}
+
+.zone.fade {
+    transition: all 0.3s ease-out;
+    opacity: 1;
+}
